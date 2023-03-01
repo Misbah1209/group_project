@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
+</head>
+
+<body>
+    <h1 id="id">Rango says...</h1>
+    <div>
+        {{pagename}} page <br />
+    </div>
+    <button type="button" onclick="myFunction()">Set text color</button>
+    <div>
+        <a href="/rango/product/">Product</a><br />
+    </div>
+</body>
+
+<script src="{% static 'script.js' %}"></script>
+</html>

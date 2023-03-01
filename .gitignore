@@ -1,0 +1,4 @@
+*.pyc
+*.db
+*.key
+db.sqlite3

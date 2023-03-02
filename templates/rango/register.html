@@ -3,11 +3,11 @@
 <html lang="en">
 
 <head>
-    <title>Home</title>
+    <title>Register</title>
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
     <link rel="icon" href="{% static 'images/logo.jpg' %}">
     <!-- Title of the page -->
-    <title>FineWood-Home</title>
+    <title>FineWood-Register</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
     <!--Header start-->
     <header class="nav-section">
         <div class="logo-container">
-            <a href="/rango/">
+            <a href="/rango">
                 <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
             </a>
         </div>
@@ -62,53 +62,42 @@
         </div>
     </header>
     <!--Header end-->
-
-    <!--Home start-->
-    <div class="banner-section"> <!--Banner start-->
-        <div class="banner-container">
-            <div class="img-section">
-                <img src="{% static 'images/banner1.jpg' %}" alt="banner" style="display: block;margin-left: auto; margin-right: auto;">
+    <!-- Body start -->
+    <div class="wall" style='background-image: url("{% static 'images/bg1.jpg' %}");'>
+        <form id="formReg" class="account_container">
+            <h1>Join Us</h1><br>
+            <hr><br>
+            <h2>Create Account</h2>
+            <br>
+            <div class="columns">
+                <label for="firstname"><b>First Name</b></label>
+                <input type="text" placeholder="Enter First Name" name="Firstname" required>
+    
+                <label for="Email"><b>Email</b></label>
+                <input type="text" placeholder="Enter Email" name="email" required>
+    
+                <label for="pass1"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pswd" required>
             </div>
-            <div class="caption-section">
-                <h4 style="color: rgb(0, 0, 0);">SHOP FOR LOUNGE</h4>
-                <p>Check out latest collections.</p>
+            <div class="columns">
+                <label for="email"><b>Last Name</b></label>
+                <input type="text" placeholder="Enter Last Name" name="Surname" required>
+    
+                <label for="phone"><b>Telephone</b></label>
+                <input type="text" placeholder="Enter Telephone" name="phone" required>
+    
+                <label for="pass2"><b>Re Enter Password</b></label>
+                <input type="password" placeholder="Enter Password" name="pswd1" required>
             </div>
-        </div>
-    </div> <!--Banner end-->
-    <br><br><br>
-    <div class="row">
-        <div class="adcolumn">
-            <img src="{% static 'images/bed2.jpg' %}" alt="ad1">
-            <h2> REVAMP YOUR SPACE</h2>
-            <p>New year, New You-start over and up your style game.</p><br>
-            <button> <a href="#" style="color:white">Shop Now</a></button>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/chair1.jpg' %}" alt="ad2">
-            <h2>TWIN THINGS</h2>
-            <p>A little Coordination goes a long way..</p><br>
-            <button> <a href="#" style="color:white">Shop Now</a></button>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/kid1.jpg' %}" alt="ad3">
-            <h2>TRENDS OF THE MOMENT</h2>
-            <p>From luxurios fashion brand to urban trends.</p><br>
-            <button> <a href="#" style="color:white">Shop Now</a></button>
-        </div>
+            <label for="address"><b>Address</b></label>
+            <input type="text" placeholder="Enter Address" name="Address" required>
+            <button type="submit" class="btn" >Create Account</button>
+            <label id="lblreg"></label>
+        </form>
     </div>
-    <br><br><br>
-    <div class="row">
-        <div class="foot-column">
-            <img src="{% static 'images/ad1.jpg' %}" alt="ad4">
-        </div>
-        <div class="foot-column">
-            <img src="{% static 'images/ad2.jpg' %}" alt="ad5">
-        </div>
-    </div>
-
-    <!--Home end-->
-
-    <footer> <!--Footer start-->
+    <!-- Body end -->
+    <!--Footer start-->
+    <footer> 
         <div class="shop item">
             <h4>SHOP</h4>
             <ul>
@@ -121,7 +110,7 @@
         </div>
 
         <div class="products item">
-            <h4>PRODUCTS</h4>
+            <h4>Category</h4>
             <ul>
                 <li><a href="#">Featured</a></li>
                 <li><a href="#">New Arrivals</a></li>

@@ -1,1 +1,777 @@
-body {background-color: lemonchiffon;}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+  
+  body {
+    font-family: "Rubik", sans-serif;
+  }
+  
+  /* Styling for Navigation Bar Start */
+  
+  .nav-section {
+    margin-top: 10px;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    position: relative;
+    top: 2px;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 100px;
+    height: 70px;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+    padding: 0 20px;
+  }
+  
+  .nav-links li a {
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav-links li:hover {
+    transform: scale(1.1);
+  }
+  
+  .search-bar {
+    position: relative;
+  }
+  
+  .search-bar input {
+    appearance: none;
+    height: 30px;
+    width: 150px;
+    background-color: #e3e5e6;
+    border: none;
+    outline: none;
+  }
+  
+  .fa-search {
+    position: absolute;
+    top: 9px;
+    left: 170px;
+  }
+  
+  .shopping-cart,
+  .sign-in,
+  .profile-user,
+  .create-user {
+    display: flex;
+    margin-right: 2px;
+  }
+  
+  .fa-shopping-cart,
+  .fa-sign-in,
+  .fa-user-circle,
+  .fa-users {
+    margin-right: 2px;
+    cursor: pointer;
+  }
+  
+  .shopping-cart p,
+  .sign-in p,
+  .profile-user p,
+  .create-user p {
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0 10px;
+    cursor: pointer;
+  }
+  
+  .profile-user:hover {
+    transform: scale(1.1);
+  }
+  
+  .sign-in:hover {
+    transform: scale(1.1);
+  }
+  
+  .shopping-cart:hover {
+    transform: scale(1.1);
+  }
+  a:link{
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:visited {
+    color: black;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:active {
+    color: black;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  /* Styling for Navigation Bar End */
+  
+  /* Styling for Footer Section Start */
+  
+  footer {
+    min-height: 28vh;
+    display: flex;
+    background-color: #faf0e6;
+  }
+  
+  .item {
+    font-size: 14px;
+    margin-left: 40px;
+    margin-top: 30px;
+  }
+  
+  .item li a {
+    text-decoration: underline;
+    color: grey;
+  }
+  
+  .item li a:hover {
+    color: black;
+  }
+  
+  .copyright {
+    font-size: 14px;
+    padding: 50px;
+    margin-left: 300px;
+    color: grey;
+  }
+  /* Styling for Footer Section Start */
+  
+  /* ------------------------ */
+  /* Men & Women Product Page */
+  /* ------------------------ */
+  
+  /* Styling for Banner Section Start*/
+  
+  .banner-container {
+    margin-top: 0.5rem;
+    height: auto;
+  }
+  
+  .img-section img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    margin-left: auto; 
+    margin-right: auto;
+  }
+  
+  .caption-section {
+    position: absolute;
+    top: 200px;
+    left: 50px;
+  }
+  
+  .caption-section h4 {
+    font-family: "Rubik", sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    padding: 10px;
+    padding: 15px;
+    padding-right: 2px;
+    color: black;
+  }
+  .caption-section p {
+    font-family: "Rubik", sans-serif;
+    padding: 6px;
+    padding-right: 2px;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  /* Styling for Banner Section End*/
+  
+  /* Styling for Products Section Start*/
+  
+  .products-section {
+    margin-top: 0.5rem;
+    height: 320vh;
+    background-color: #fbfbfb;
+  }
+  .product-caption{
+    height: 20px;
+  }
+
+  .dropdown
+  {
+    margin-right: 10px;
+  }
+  .product-caption h2 {
+    font-family: "Rubik", sans-serif;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 340px);
+    row-gap: 2px;
+    column-gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .grid-item {
+    margin-top: 50px;
+    width: 320px;
+    height: 410px;
+  }
+  
+  .card-item {
+    width: 320px;
+    height: 410px;
+    box-shadow: 0 0 10px lightgray;
+    position: relative;
+    background-color: white;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 250px;
+  }
+  
+  .card-img img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .3s ease;
+  }
+  .card-img:hover .overlay {
+    opacity: 1;
+  }
+  
+  .card-info {
+    padding: 7px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-row-gap: 10px;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .card-info h4 {
+    padding: 10px;
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+  }
+  
+  .card-info small {
+    padding-left: 8px;
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.1rem;
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .button button {
+    margin-top: 10px;
+    cursor: pointer;
+    padding: 10px;
+    font-family: "Rubik", sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    height: 40px;
+    background-color:rgb(129, 94, 52);
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .tag {
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    background-color: lightblue;
+    color: white;
+    padding: 0.5rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 10px;
+    letter-spacing: 0.1rem;
+    font-weight: 700;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .colour-cm {
+    background-color: #b8a68e;
+  }
+  
+  /* --------- */
+  /* Cart Page */
+  /* --------- */
+  
+  /* Styling for Cart List Start */
+  
+  .cart-wall {
+    min-height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .cart-section {
+    margin-top: 0.5rem;
+    min-height: 100vh;
+  }
+  
+  .cart-caption {
+    padding: 20px 30px;
+    color: white;
+  }
+  
+  .cart-display-section {
+    display: flex;
+  }
+  
+  .products-c {
+    min-height: 80vh;
+    flex: 0.6;
+    margin-left: 30px;
+  border-right: 1px solid white;
+  
+  }
+  
+  .summary-c {
+    min-height: 80vh;
+    flex: 0.55;
+    margin-left: 30px;
+  }
+  
+  .product-item {
+    display: flex;
+    width: 96%;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .product-item:hover {
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+  
+  .product-item > img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .product-item-info {
+    padding: 18px 10px;
+    position: relative;
+    width: 50%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .product-item-name {
+    margin-bottom: 15px;
+  }
+  
+  .product-item-price {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .product-item-quantity {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .product-item-quantity > input {
+    width: 46px;
+    padding: 10px;
+    border: 1px solid slategray;
+    border-radius: 3px;
+    text-align: center;
+    height: 25px;
+  }
+  
+  .product-item-remove {
+    height: 30px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  
+  .product-item-remove:hover {
+    background-color: rgb(129, 94, 52);
+  }
+  
+  .remove {
+    padding: 0 5px;
+  }
+  /* Styling for Cart List End */
+  
+  /* Styling for Order summary box Start */
+  
+  .summary-box {
+    margin-left: 20px;
+    width: 400px;
+    height: 300px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .summary-caption {
+    padding: 10px 20px;
+    font-size: 20px;
+  }
+  
+  .summary-box-info {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    margin-left: 20px;
+    padding: 20px 10px;
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+  }
+  
+  .summary-items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: gainsboro;
+    height: 40px;
+    border-radius: 3px;
+  }
+  
+  .summary-total {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    background-color: gainsboro;
+    height: 40px;
+    border-radius: 3px;
+  }
+  
+  .summary-checkout {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .summary-checkout button {
+    height: 40px;
+    width: 200px;
+    font-weight: 500;
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    background-color: rgb(129, 94, 52);
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .summary-checkout button:hover {
+    opacity: 0.8;
+  }
+  /* Styling for Order summary box End */
+  
+  /* ------------------------- */
+  /* Sign in and Register Page */
+  /* ------------------------- */
+  
+  /* Styling for Sign in and Register Section   */
+  
+  .bg-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    min-height: 700px;
+  }
+  
+  .form_container {
+    position: absolute;
+    right: 5%;
+    margin: 20px;
+    max-width: 450px;
+    padding: 16px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  input[type=text], input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  .btn {
+    background-color: rgb(129, 94, 52);
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  .wall {
+    min-height: 700px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  .account_container {
+    position: absolute;
+    right: 5%;
+    margin: 20px;
+    max-width: 600px;
+    padding: 16px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+   .columns {
+    float: left;
+    width: 50%;
+    padding: 10px;
+   }
+   .dropbtn {
+    background-color: black;
+    color: white;
+    padding: 15px 25px;
+    font-size: 17px;
+    font-family: "Rubik", sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius:10px;
+  }
+  
+  .dropdown {
+  
+    float:right;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  .dropdown:hover .dropdown-content {display: block;}
+  .dropdown:hover .dropbtn {background-color: rgb(129, 94, 52);}
+  
+  /* ------------ */
+  /* Profile Page */
+  /* ------------ */
+  
+  /* Styling for Customer Profile Section Starts  */
+  
+  .order-section {
+    margin-top: 0.5rem;
+    min-height: 60vh;
+   
+  }
+  
+  .order-caption {
+    padding: 20px 30px;
+    color: white;
+  }
+  
+  .order-display-section {
+    display: flex;
+  }
+  
+  .orders-c {
+    min-height: 70vh;
+    flex: 0.6;
+    margin-left: 30px;
+   
+  }
+  
+  .order-item {
+    display: flex;
+    width: 550px;
+    height: 175px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .order-item:hover {
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.01);
+  }
+  
+  .order-item-info {
+    padding: 18px 10px;
+    position: relative;
+    width: 50%;
+    font-family: "Rubik", sans-serif;
+  }
+  
+  .order-item-name {
+    margin-bottom: 15px;
+  }
+  
+  .order-item-price {
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  
+  .order-item-quantity {
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  .order-item > img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+  }
+  /* Styling for Customer Profile Section Ends */
+  
+  /* --------- */
+  /* Home Page */
+  /* --------- */
+  
+  /*  Styling for Ads Section Starts */
+  
+  .adcolumn {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 300px; 
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .adcolumn > img {
+  width: 90%;
+  height: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  display: block;
+  }
+  
+  .adcolumn > h2 {
+  text-align: center
+  }
+  .adcolumn > p {
+    text-align: center
+    }
+  
+  .adcolumn > button {
+  height: 30px;
+  width: 90px;
+  font-weight: 300;
+  font-family: "Rubik", sans-serif;
+  font-size: 15px;
+  background-color: black;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  margin:0 auto;
+  display:block;
+  }
+  
+  .adcolumn >button:hover {
+    background-color:  rgb(129, 94, 52);
+  }
+  
+  .foot-column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; 
+  }
+  
+  .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+  .foot-column > img {
+  width: 90%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+  display: block;
+  }
+  
+  /*  Styling for Ads Section Ends */

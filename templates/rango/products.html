@@ -1,22 +1,180 @@
 <!DOCTYPE html>
 {% load staticfiles %}
-<html>
+<html lang="en">
 
 <head>
-    <title>Product</title>
+    <title>Products</title>
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
+    <link rel="icon" href="{% static 'images/logo.jpg' %}">
+    <!-- Title of the page -->
+    <title>FineWood-Products</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 
 <body>
-    <h1 id="id">Rango says...</h1>
-    <div>
-        {{pagename}} page <br />
+    <!--Header start-->
+    <header class="nav-section">
+        <div class="logo-container">
+            <a href="/rango/">
+                <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
+            </a>
+        </div>
+        <!-- Navigation Bar -->
+        <div class="navbar-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/rango/">Home</a></li>
+                    <li><a href="/rango/product/">Products</a></li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" class="search-box" placeholder=" Search ">
+            <i class="fa fa-search"></i>
+        </div>
+        <!-- Navigation Bar -->
+
+        <div class="shopping-cart">
+            <i class="fa fa-shopping-cart fa-lg"></i>
+            <p><a href="#">Cart</a></p>
+
+        </div>
+
+        <div class="sign-in">
+            <i class="fa fa-sign-in fa-lg"></i>
+            <p><a href="/rango/login/">Login</a></p>
+        </div>
+
+        <div class="profile-user">
+            <i class="fa fa-user-circle fa-lg"></i>
+            <p><a href="#">My Profile</a></p>
+        </div>
+
+        <div class="create-user">
+            <i class="fa fa-users fa-lg"></i>
+            <p><a href="/rango/register/">Create Account</a></p>
+        </div>
+    </header>
+    <!--Header end-->
+
+    <div class="products-section">
+        <div class="product-caption">
+            <h2 style="display:inline">HOME > ALL PRODUCTS</h2>
+
+            <div class="dropdown">
+                <button class="dropbtn">Sort By</button>
+                <div class="dropdown-content">
+                    <a href="#">Popularity</a>
+                    <a href="#">High to Low Price</a>
+                    <a href="#">Low to High Price</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-container"> <!--Grid start end-->
+            <div class="grid-item"> <!--Item 1-->
+                <div class="card-item">
+                    <div class="card-img">
+                        <img src="{% static 'images/sofa1.jpg' %}" alt="pic">
+                    </div>
+                    <div class="card-info">
+                        <h4>IVORY SOFA</h4>
+                        <small>£40.00</small>
+                    </div>
+                    <div class="button">
+                        <button>ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item"> <!--Item 1-->
+                <div class="card-item">
+                    <div class="card-img">
+                        <img src="{% static 'images/trolley1.jpg' %}" alt="pic">
+                    </div>
+                    <div class="card-info">
+                        <h4>BAR TROLLEY</h4>
+                        <small>£40.00</small>
+                    </div>
+                    <div class="button">
+                        <button>ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item"> <!--Item 1-->
+                <div class="card-item">
+                    <div class="card-img">
+                        <img src="{% static 'images/wardrobe1.jpg' %}" alt="pic">
+                    </div>
+                    <div class="card-info">
+                        <h4>BLACK WARDROBE</h4>
+                        <small>£40.00</small>
+                    </div>
+                    <div class="button">
+                        <button>ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item"> <!--Item 1-->
+                <div class="card-item">
+                    <div class="card-img">
+                        <img src="{% static 'images/table2.jpg' %}" alt="pic">
+                    </div>
+                    <div class="card-info">
+                        <h4>WHITE TABLE SET</h4>
+                        <small>£40.00</small>
+                    </div>
+                    <div class="button">
+                        <button>ADD TO CART</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <button type="button" onclick="myFunction()">Set text color</button>
-    <div>
-        <a href="/rango/product/">Back to Home</a><br />
-    </div>
+    <footer> <!--Footer start-->
+        <div class="shop item">
+            <h4>SHOP</h4>
+            <ul>
+                <li><a href="#">Dining</a></li>
+                <li><a href="#">Lounge</a></li>
+                <li><a href="#">Garden</a></li>
+                <li><a href="#">Bedroom</a></li>
+                <li><a href="#">Decor</a></li>
+            </ul>
+        </div>
+
+        <div class="products item">
+            <h4>PRODUCTS</h4>
+            <ul>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#">New Arrivals</a></li>
+            </ul>
+        </div>
+
+        <div class="customer item">
+            <h4>QUICKLINKS</h4>
+            <ul>
+                <li><a href="login.html">Customer Login</a></li>
+                <li><a href="profile.html">My Profile</a></li>
+                <li><a href="Register.html">Customer Register</a></li>
+                <li><a href="cart_page.html">Cart</a></li>
+
+            </ul>
+
+        </div>
+
+        <div class="copyright">
+            <p>C&copy; 2023 FINEWOOD. All Right Reserved</p>
+        </div>
+    </footer> <!--Footer end-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="{% static 'script.js' %}"></script>
 </body>
 
-<script src="{% static 'script.js' %}"></script>
 </html>

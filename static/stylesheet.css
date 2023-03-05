@@ -16,13 +16,34 @@
     margin-top: 10px;
     height: 12vh;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
   }
-  
+  .navbar-container{
+    border-top: 2px solid ;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    z-index: 1;
+  }
+  .navbar-container li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .nav-main {
+    display: flex;
+    justify-content:right;
+    align-items: center;
+    width: 35%;
+  }
+  .nav-main div {
+    margin-right: 4%;
+  }
+
   .logo {
     position: relative;
     top: 2px;
+    z-index: -1;
     cursor: pointer;
     margin-left: 10px;
     width: 100px;
@@ -47,12 +68,13 @@
   
   .search-bar {
     position: relative;
+    width: 25%;
   }
   
   .search-bar input {
     appearance: none;
     height: 30px;
-    width: 150px;
+    width: 15%;
     background-color: #e3e5e6;
     border: none;
     outline: none;
@@ -60,8 +82,8 @@
   
   .fa-search {
     position: absolute;
-    top: 9px;
-    left: 170px;
+    top: 20%;
+    right: 5%;
   }
   
   .shopping-cart,
@@ -73,6 +95,7 @@
   }
   
   .fa-shopping-cart,
+  .fa-home,
   .fa-sign-in,
   .fa-user-circle,
   .fa-users {
@@ -149,11 +172,7 @@
     color: grey;
   }
   /* Styling for Footer Section Start */
-  
-  /* ------------------------ */
-  /* Men & Women Product Page */
-  /* ------------------------ */
-  
+    
   /* Styling for Banner Section Start*/
   
   .banner-container {
@@ -628,78 +647,7 @@
   .dropdown-content a:hover {background-color: #f1f1f1;}
   .dropdown:hover .dropdown-content {display: block;}
   .dropdown:hover .dropbtn {background-color: rgb(129, 94, 52);}
-  
-  /* ------------ */
-  /* Profile Page */
-  /* ------------ */
-  
-  /* Styling for Customer Profile Section Starts  */
-  
-  .order-section {
-    margin-top: 0.5rem;
-    min-height: 60vh;
-   
-  }
-  
-  .order-caption {
-    padding: 20px 30px;
-    color: white;
-  }
-  
-  .order-display-section {
-    display: flex;
-  }
-  
-  .orders-c {
-    min-height: 70vh;
-    flex: 0.6;
-    margin-left: 30px;
-   
-  }
-  
-  .order-item {
-    display: flex;
-    width: 550px;
-    height: 175px;
-    overflow: hidden;
-    margin-bottom: 15px;
-    cursor: pointer;
-    background-color: rgb(255, 255, 255);
-  }
-  
-  .order-item:hover {
-    border: none;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    transform: scale(1.01);
-  }
-  
-  .order-item-info {
-    padding: 18px 10px;
-    position: relative;
-    width: 50%;
-    font-family: "Rubik", sans-serif;
-  }
-  
-  .order-item-name {
-    margin-bottom: 15px;
-  }
-  
-  .order-item-price {
-    margin-bottom: 10px;
-    font-weight: 700;
-  }
-  
-  .order-item-quantity {
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-  .order-item > img {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-  }
-  /* Styling for Customer Profile Section Ends */
-  
+    
   /* --------- */
   /* Home Page */
   /* --------- */

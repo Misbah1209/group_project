@@ -3,11 +3,10 @@
 <html lang="en">
 
 <head>
-    <title>Products</title>
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
     <link rel="icon" href="{% static 'images/logo.jpg' %}">
     <!-- Title of the page -->
-    <title>FineWood-Products</title>
+    <title>FineWood-Category Products</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -23,44 +22,42 @@
                 <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
             </a>
         </div>
-        <!-- Navigation Bar -->
-        <div class="navbar-container">
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="/rango/">Home</a></li>
-                    <li><a href="/rango/product/">Products</a></li>
-                </ul>
-            </nav>
-        </div>
         <!-- Search Bar -->
         <div class="search-bar">
             <input type="text" class="search-box" placeholder=" Search ">
             <i class="fa fa-search"></i>
         </div>
         <!-- Navigation Bar -->
+        <div class="nav-main">
+            <div class="shopping-cart">
+                <i class="fa fa-shopping-cart fa-lg"></i>
+                <p><a href="/rango/cart/">Cart</a></p>
+            </div>
 
-        <div class="shopping-cart">
-            <i class="fa fa-shopping-cart fa-lg"></i>
-            <p><a href="#">Cart</a></p>
+            <div class="sign-in">
+                <i class="fa fa-sign-in fa-lg"></i>
+                <p><a href="/rango/login/">Login</a></p>
+            </div>
 
+            <div class="create-user">
+                <i class="fa fa-users fa-lg"></i>
+                <p><a href="/rango/register/">Create Account</a></p>
+            </div>
         </div>
 
-        <div class="sign-in">
-            <i class="fa fa-sign-in fa-lg"></i>
-            <p><a href="/rango/login/">Login</a></p>
-        </div>
-
-        <div class="profile-user">
-            <i class="fa fa-user-circle fa-lg"></i>
-            <p><a href="#">My Profile</a></p>
-        </div>
-
-        <div class="create-user">
-            <i class="fa fa-users fa-lg"></i>
-            <p><a href="/rango/register/">Create Account</a></p>
-        </div>
     </header>
     <!--Header end-->
+    <!-- category navigation bar start-->
+    <div class="navbar-container">
+        <nav>
+            <ul class="nav-links">
+                <li><a href="/rango/product/">Dining</a></li>
+                <li><a href="/rango/product/">Lounge</a></li>
+                <li><a href="/rango/product/">Bedroom</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- category navigation bar end-->
 
     <div class="products-section">
         <div class="product-caption">
@@ -137,7 +134,7 @@
     </div>
     <footer> <!--Footer start-->
         <div class="shop item">
-            <h4>SHOP</h4>
+            <h4>Categories</h4>
             <ul>
                 <li><a href="#">Dining</a></li>
                 <li><a href="#">Lounge</a></li>
@@ -148,7 +145,7 @@
         </div>
 
         <div class="products item">
-            <h4>PRODUCTS</h4>
+            <h4>Shop</h4>
             <ul>
                 <li><a href="#">Featured</a></li>
                 <li><a href="#">New Arrivals</a></li>
@@ -158,11 +155,10 @@
         <div class="customer item">
             <h4>QUICKLINKS</h4>
             <ul>
-                <li><a href="login.html">Customer Login</a></li>
-                <li><a href="profile.html">My Profile</a></li>
-                <li><a href="Register.html">Customer Register</a></li>
-                <li><a href="cart_page.html">Cart</a></li>
-
+                <li><a href="#">Customer Login</a></li>
+                <li><a href="#">Customer Register</a></li>
+                <li><a href="#">Cart</a></li>
+                <li><a href="#">Admin Profile</a></li>
             </ul>
 
         </div>

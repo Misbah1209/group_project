@@ -3,10 +3,11 @@
 <html lang="en">
 
 <head>
+    <title>Cart</title>
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
     <link rel="icon" href="{% static 'images/logo.jpg' %}">
     <!-- Title of the page -->
-    <title>FineWood-Login</title>
+    <title>FineWood-Your Cart</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -59,27 +60,54 @@
     </div>
     <!-- category navigation bar end-->
     <!-- Body start -->
-    <div class="bg-img" style='background-image: url("{% static 'images/bg2.jpg' %}");'>
+    <div class="wall" style='background-image: url("{% static 'images/bg3.jpg' %}");'>
+        <div class="cart-section">
+            <h2 class="cart-caption"> Cart</h2>
+            <div class="cart-display-section">
+                <div class="products-c"> <!--Products container start-->
+                    <div class="summary-box">
+                        <h2 class="summary-caption">Products</h2>
+                        <div class="summary-box-info">
+                            <div class="summary-items">
+                                <h3>name</h3>
+                                <p>price</p>
+                            </div>
+                            <br>
+                            <div class="summary-items">
+                                <h3>name</h3>
+                                <p>price</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--Products container end-->
 
-        <form id="formReg" class="form_container">
-            <h1>Join Us</h1><br>
-            <hr><br>
-            <h2 id="message">Log In</h2>
-            <br>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+                <div class="summary-c"><!--Order summary Start-->
+                    <div class="summary-box">
+                        <h2 class="summary-caption">Order Summary</h2>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pswd" required>
+                        <div class="summary-box-info">
+                            <div class="summary-items">
+                                <h3>No.Of Items</h3>
+                                <p>2</p>
+                            </div>
 
-            <button type="submit" class="btn">Log In</button>
+                            <div class="summary-total">
+                                <h3>Subtotal</h3>
+                                <p>£ <span>145.00</span></p>
+                            </div>
+                        </div>
 
-            <label id="lbllogin"></label>
-        </form>
+                        <div class="summary-checkout">
+                            <button>CHECKOUT</button>
+                        </div>
+                    </div>
+                </div><!--Order Summary end-->
+            </div>
+
+        </div>
     </div>
     <!-- Body end -->
-    <!--Footer start-->
-    <footer>
+    <footer> <!--Footer start-->
         <div class="shop item">
             <h4>Categories</h4>
             <ul>

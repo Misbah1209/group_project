@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
     <link rel="icon" href="{% static 'images/logo.jpg' %}">
     <!-- Title of the page -->
-    <title>FineWood-Login</title>
+    <title>FineWood-Admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -59,27 +59,29 @@
     </div>
     <!-- category navigation bar end-->
     <!-- Body start -->
-    <div class="bg-img" style='background-image: url("{% static 'images/bg2.jpg' %}");'>
+    <div class="wall" style='background-image: url("{% static 'images/bg4.jpg' %}");'>
+        <br><br><br>
+        <div class="summary-c"><!--Order summary Start-->
+            <div class="summary-box">
+                <h2 class="summary-caption">Current Categories</h2>
 
-        <form id="formReg" class="form_container">
-            <h1>Join Us</h1><br>
-            <hr><br>
-            <h2 id="message">Log In</h2>
-            <br>
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" required>
+                <div class="summary-box-info">
+                    <div class="summary-items">
+                        <h3>Category 1</h3>
+                    </div><br>
+                    <div class="summary-items">
+                        <h3>Category 2</h3>
+                    </div><br>
+                </div>
 
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="pswd" required>
-
-            <button type="submit" class="btn">Log In</button>
-
-            <label id="lbllogin"></label>
-        </form>
+                <div class="summary-checkout">
+                    <button><a href="#">Add category</a></button>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- Body end -->
     <!--Footer start-->
-    <footer>
+    <footer> <!--Footer start-->
         <div class="shop item">
             <h4>Categories</h4>
             <ul>

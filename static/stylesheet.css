@@ -39,7 +39,6 @@
   .nav-main div {
     margin-right: 4%;
   }
-
   .logo {
     position: relative;
     top: 2px;
@@ -93,7 +92,11 @@
     display: flex;
     margin-right: 2px;
   }
-  
+  .logo-container{
+    display: flex;
+    align-items: center;
+  }
+
   .fa-shopping-cart,
   .fa-home,
   .fa-sign-in,
@@ -217,11 +220,11 @@
   
   .products-section {
     margin-top: 0.5rem;
-    height: 320vh;
+    height: auto;
     background-color: #fbfbfb;
   }
   .product-caption{
-    height: 20px;
+    height: 20%;
   }
 
   .dropdown
@@ -467,7 +470,7 @@
   .summary-box {
     margin-left: 20px;
     width: 400px;
-    height: 300px;
+    height: auto;
     border-radius: 5px;
     background-color: rgb(255, 255, 255);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
@@ -560,7 +563,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  input[type=text], input[type=password] {
+  input[type=text], input[type=password],input[type=email] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -568,7 +571,7 @@
     background: #f1f1f1;
   }
   
-  input[type=text]:focus, input[type=password]:focus {
+  input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
     background-color: #ddd;
     outline: none;
   }
@@ -722,4 +725,7 @@
   display: block;
   }
   
+  .helptext{
+    display: none;
+  }
   /*  Styling for Ads Section Ends */

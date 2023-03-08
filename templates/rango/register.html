@@ -1,137 +1,32 @@
-<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html lang="en">
+{% block title_block %}
+Register
+{% endblock %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
-    <link rel="icon" href="{% static 'images/logo.jpg' %}">
-    <!-- Title of the page -->
-    <title>FineWood-Register</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-</head>
-
-<body>
-    <!--Header start-->
-    <header class="nav-section">
-        <div class="logo-container">
-            <a href="/rango/">
-                <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
-            </a>
-        </div>
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" class="search-box" placeholder=" Search ">
-            <i class="fa fa-search"></i>
-        </div>
-        <!-- Navigation Bar -->
-        <div class="nav-main">
-            <div class="shopping-cart">
-                <i class="fa fa-shopping-cart fa-lg"></i>
-                <p><a href="/rango/cart/">Cart</a></p>
-            </div>
-
-            <div class="sign-in">
-                <i class="fa fa-sign-in fa-lg"></i>
-                <p><a href="/rango/login/">Login</a></p>
-            </div>
-
-            <div class="create-user">
-                <i class="fa fa-users fa-lg"></i>
-                <p><a href="/rango/register/">Create Account</a></p>
-            </div>
-        </div>
-
-    </header>
-    <!--Header end-->
-    <!-- category navigation bar start-->
-    <div class="navbar-container">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/rango/product/">Dining</a></li>
-                <li><a href="/rango/product/">Lounge</a></li>
-                <li><a href="/rango/product/">Bedroom</a></li>
-            </ul>
-        </nav>
-    </div>
-    <!-- category navigation bar end-->
+{% block body_block %}
     <!-- Body start -->
     <div class="wall" style='background-image: url("{% static 'images/bg1.jpg' %}");'>
-        <form id="formReg" class="account_container">
+        <form id="user_form" method="post" class="account_container" action="{% url 'rango:register' %}"
+        enctype="multipart/form-data">
             <h1>Join Us</h1><br>
             <hr><br>
-            <h2>Create Account</h2>
-            <br>
+            <h2>Create Account</h2><br>
+
+            {% csrf_token %}
             <div class="columns">
-                <label for="firstname"><b>First Name</b></label>
-                <input type="text" placeholder="Enter First Name" name="Firstname" required>
-
-                <label for="Email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" required>
-
-                <label for="pass1"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pswd" required>
+                {{ user_form.as_p }}
             </div>
             <div class="columns">
-                <label for="email"><b>Last Name</b></label>
-                <input type="text" placeholder="Enter Last Name" name="Surname" required>
-
-                <label for="phone"><b>Telephone</b></label>
-                <input type="text" placeholder="Enter Telephone" name="phone" required>
-
-                <label for="pass2"><b>Re Enter Password</b></label>
-                <input type="password" placeholder="Enter Password" name="pswd1" required>
+                {{ profile_form.as_p }}
             </div>
-            <label for="address"><b>Address</b></label>
-            <input type="text" placeholder="Enter Address" name="Address" required>
-            <button type="submit" class="btn">Create Account</button>
-            <label id="lblreg"></label>
+            
+            <input type="submit" class="btn" name="submit" value="Register" />
+            {% if registered %}
+                <label id="lblreg">Thank you for registering!</label>
+            {% endif %}
         </form>
     </div>
     <!-- Body end -->
-    <!--Footer start-->
-    <footer> <!--Footer start-->
-        <div class="shop item">
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="#">Dining</a></li>
-                <li><a href="#">Lounge</a></li>
-                <li><a href="#">Garden</a></li>
-                <li><a href="#">Bedroom</a></li>
-                <li><a href="#">Decor</a></li>
-            </ul>
-        </div>
-
-        <div class="products item">
-            <h4>Shop</h4>
-            <ul>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">New Arrivals</a></li>
-            </ul>
-        </div>
-
-        <div class="customer item">
-            <h4>QUICKLINKS</h4>
-            <ul>
-                <li><a href="#">Customer Login</a></li>
-                <li><a href="#">Customer Register</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Admin Profile</a></li>
-            </ul>
-
-        </div>
-
-        <div class="copyright">
-            <p>C&copy; 2023 FINEWOOD. All Right Reserved</p>
-        </div>
-    </footer> <!--Footer end-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="{% static 'script.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}

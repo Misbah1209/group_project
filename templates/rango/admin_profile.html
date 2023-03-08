@@ -1,63 +1,10 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html lang="en">
+{% block title_block %}
+Admin Profile
+{% endblock %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
-    <link rel="icon" href="{% static 'images/logo.jpg' %}">
-    <!-- Title of the page -->
-    <title>FineWood-Admin</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-</head>
-
-<body>
-    <!--Header start-->
-    <header class="nav-section">
-        <div class="logo-container">
-            <a href="/rango/">
-                <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
-            </a>
-        </div>
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" class="search-box" placeholder=" Search ">
-            <i class="fa fa-search"></i>
-        </div>
-        <!-- Navigation Bar -->
-        <div class="nav-main">
-            <div class="shopping-cart">
-                <i class="fa fa-shopping-cart fa-lg"></i>
-                <p><a href="/rango/cart/">Cart</a></p>
-            </div>
-
-            <div class="sign-in">
-                <i class="fa fa-sign-in fa-lg"></i>
-                <p><a href="/rango/login/">Login</a></p>
-            </div>
-
-            <div class="create-user">
-                <i class="fa fa-users fa-lg"></i>
-                <p><a href="/rango/register/">Create Account</a></p>
-            </div>
-        </div>
-
-    </header>
-    <!--Header end-->
-    <!-- category navigation bar start-->
-    <div class="navbar-container">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/rango/product/">Dining</a></li>
-                <li><a href="/rango/product/">Lounge</a></li>
-                <li><a href="/rango/product/">Bedroom</a></li>
-            </ul>
-        </nav>
-    </div>
-    <!-- category navigation bar end-->
+{% block body_block %}
     <!-- Body start -->
     <div class="wall" style='background-image: url("{% static 'images/bg4.jpg' %}");'>
         <br><br><br>
@@ -66,60 +13,18 @@
                 <h2 class="summary-caption">Current Categories</h2>
 
                 <div class="summary-box-info">
+                    {% for category in categories %}
                     <div class="summary-items">
-                        <h3>Category 1</h3>
+                        <h3><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></h3>
                     </div><br>
-                    <div class="summary-items">
-                        <h3>Category 2</h3>
-                    </div><br>
+                    {% endfor %}
                 </div>
 
                 <div class="summary-checkout">
                     <button><a href="#">Add category</a></button>
                 </div>
+                <br>
             </div>
         </div>
     </div>
-    <!--Footer start-->
-    <footer> <!--Footer start-->
-        <div class="shop item">
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="#">Dining</a></li>
-                <li><a href="#">Lounge</a></li>
-                <li><a href="#">Garden</a></li>
-                <li><a href="#">Bedroom</a></li>
-                <li><a href="#">Decor</a></li>
-            </ul>
-        </div>
-
-        <div class="products item">
-            <h4>Shop</h4>
-            <ul>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">New Arrivals</a></li>
-            </ul>
-        </div>
-
-        <div class="customer item">
-            <h4>QUICKLINKS</h4>
-            <ul>
-                <li><a href="#">Customer Login</a></li>
-                <li><a href="#">Customer Register</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="#">Admin Profile</a></li>
-            </ul>
-
-        </div>
-
-        <div class="copyright">
-            <p>C&copy; 2023 FINEWOOD. All Right Reserved</p>
-        </div>
-    </footer> <!--Footer end-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="{% static 'script.js' %}"></script>
-</body>
-
-</html>
+{% endblock %}

@@ -1,43 +1,126 @@
 import os
 os.environ.setdefault('DJANGO_SETTINGS_MODULE',
-                      'tango_with_django_project.settings')
+                      'group_project.settings')
 
 import django
 django.setup()
 from rango.models import Category, Product
 
 def populate():
-    python_pages = [
-        {'title': 'Official Python Tutorial',
-        'url':'http://docs.python.org/3/tutorial/',
-        'views':1},
-        {'title':'How to Think like a Computer Scientist',
-        'url':'http://www.greenteapress.com/thinkpython/',
-        'views':2},
-        {'title':'Learn Python in 10 Minutes',
-        'url':'http://www.korokithakis.net/tutorials/python/',
-        'views':3} ]
+    dining_products = [
+        {'title': 'Velvet Chair',
+        'product_image':'product_image/chair1.jpg',
+        'price':120.00,
+        'color':'Green'},
+        {'title': 'Oakley Set of 2',
+        'product_image':'product_image/chair2.jpg',
+        'price':90.00,
+        'color':'Orange'},
+        {'title': 'Dining Bench',
+        'product_image':'product_image/chair3.jpg',
+        'price':75.50,
+        'color':'White'}, 
+        {'title': 'Ceramic Dining Table',
+        'product_image':'product_image/table1.jpg',
+        'price':140.00,
+        'color':'Black'},
+        {'title': 'Rectangle Table',
+        'product_image':'product_image/table2.jpg',
+        'price':105.00,
+        'color':'White'},
+        {'title': 'Wooden Table',
+        'product_image':'product_image/table3.jpg',
+        'price':155.50,
+        'color':'Brown'}, ]
     
-    django_pages = [
-        {'title':'Official Django Tutorial',
-        'url':'https://docs.djangoproject.com/en/2.1/intro/tutorial01/','views':4},
-        {'title':'Django Rocks',
-        'url':'http://www.djangorocks.com/','views':5},
-        {'title':'How to Tango with Django',
-        'url':'http://www.tangowithdjango.com/','views':6} ]
+    lounge_products = [
+       {'title': 'L Sofa',
+        'product_image':'product_image/sofa1.jpg',
+        'price':120.00,
+        'color':'Green'},
+        {'title': 'Chesterfeild Sofa',
+        'product_image':'product_image/sofa2.jpg',
+        'price':90.00,
+        'color':'Blue'},
+        {'title': 'Grid Arched Mirror',
+        'product_image':'product_image/mirror1.jpg',
+        'price':75.50,
+        'color':'Black'}, 
+        {'title': 'Irregular Frameless Mirror',
+        'product_image':'product_image/mirror2.jpg',
+        'price':140.00,
+        'color':'White'},
+        {'title': 'Wooven Cabinet',
+        'product_image':'product_image/cabin1.jpg',
+        'price':105.00,
+        'color':'Black'},
+        {'title': 'Rattan Cabinet',
+        'product_image':'product_image/cabin2.jpg',
+        'price':155.50,
+        'color':'Brown'}, ]
     
-    other_pages = [
-        {'title':'Bottle','url':'http://bottlepy.org/docs/dev/','views':7},
-        {'title':'Flask', 'url':'http://flask.pocoo.org','views':8} ]
+    bedroom_products = [
+        {'title': 'Wooden Solid Bed',
+        'product_image':'product_image/bed1.jpg',
+        'price':120.00,
+        'color':'White'},
+        {'title': 'Velvet Framed Bed',
+        'product_image':'product_image/bed2.jpg',
+        'price':190.00,
+        'color':'Blue'},
+        {'title': 'Gretel House Bed',
+        'product_image':'product_image/kid1.jpg',
+        'price':75.50,
+        'color':'White'}, 
+        {'title': 'High Solid Bed',
+        'product_image':'product_image/kid2.jpg',
+        'price':140.00,
+        'color':'Brown'},
+        {'title': 'Wooven Framed Wardrobe',
+        'product_image':'product_image/wardrobe1.jpg',
+        'price':105.00,
+        'color':'Black'},
+        {'title': 'Rattan Wardrobe',
+        'product_image':'product_image/wardrobe2.jpg',
+        'price':155.50,
+        'color':'Brown'}, ]
     
-    cats = {'Python': {'pages': python_pages, 'views': 128, "likes": 64},
-        'Django': {'pages': django_pages, "views" : 64, "likes": 32},
-        'Other Frameworks': {'pages': other_pages, "views": 32, "likes": 16} }
+    garden_products = [
+        {'title': 'Bar Trolley',
+        'product_image':'product_image/trolley1.jpg',
+        'price':120.00,
+        'color':'Gold'},
+        {'title': 'Konya 2 Seater',
+        'product_image':'product_image/outchair1.jpg',
+        'price':90.00,
+        'color':'Black'},
+        {'title': 'Cacoon Chair',
+        'product_image':'product_image/outchair2.jpg',
+        'price':75.50,
+        'color':'White'}, 
+        {'title': 'Bar Stool',
+        'product_image':'product_image/trolley2.jpg',
+        'price':140.00,
+        'color':'Gold'},
+        {'title': 'Grey Gazebo',
+        'product_image':'product_image/outchair3.jpg',
+        'price':405.00,
+        'color':'Grey'},
+        {'title': 'Pet Basket',
+        'product_image':'product_image/pet2.jpg',
+        'price':105.50,
+        'color':'Black'}, ]
+
+    cats = {'Dining': {'products': dining_products},
+            'Lounge': {'products': lounge_products},
+            'Bedroom': {'products': bedroom_products},
+            'Garden': {'products': garden_products} 
+            }
   
     for cat, cat_data in cats.items():
         c= add_cat(cat)
         for p in cat_data['products']:
-            add_page(c,p['title'],p['product_image'],p['price'],p['color'])
+            add_product(c,p['title'],p['product_image'],p['price'],p['color'])
 
     for c in Category.objects.all():
         for p in Product.objects.filter(category=c):

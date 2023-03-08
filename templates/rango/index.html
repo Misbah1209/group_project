@@ -1,149 +1,51 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 {% load staticfiles %}
-<html lang="en">
+{% block title_block %}
+Home
+{% endblock %}
 
-<head>
-    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
-    <link rel="icon" href="{% static 'images/logo.jpg' %}">
-    <!-- Title of the page -->
-    <title>FineWood-Home</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-</head>
-
-<body>
-    <!--Header start-->
-    <header class="nav-section">
-        <div class="logo-container">
-            <a href="/rango/">
-                <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
-            </a>
-        </div>
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" class="search-box" placeholder=" Search ">
-            <i class="fa fa-search"></i>
-        </div>
-        <!-- Navigation Bar -->
-        <div class="nav-main">
-            <div class="shopping-cart">
-                <i class="fa fa-home fa-lg"></i>
-                <p><a href="/rango/">Home</a></p>
-            </div>
-            <div class="shopping-cart">
-                <i class="fa fa-shopping-cart fa-lg"></i>
-                <p><a href="/rango/cart/">Cart</a></p>
-            </div>
-
-            <div class="sign-in">
-                <i class="fa fa-sign-in fa-lg"></i>
-                <p><a href="/rango/login/">Login</a></p>
-            </div>
-
-            <div class="create-user">
-                <i class="fa fa-users fa-lg"></i>
-                <p><a href="/rango/register/">Create Account</a></p>
-            </div>
-        </div>
-
-    </header>
-    <!--Header end-->
-    <!-- category navigation bar start-->
-    <div class="navbar-container">
-        <nav>
-            <ul class="nav-links">
-                <li><a href="/rango/product/">Dining</a></li>
-                <li><a href="/rango/product/">Lounge</a></li>
-                <li><a href="/rango/product/">Bedroom</a></li>
-            </ul>
-        </nav>
-    </div>
-    <!-- category navigation bar end-->
-    <!--Home start-->
-    <div class="banner-section"> <!--Banner start-->
-        <div class="banner-container">
-            <div class="img-section">
-                <img src="{% static 'images/banner1.jpg' %}" alt="banner"
-                    style="display: block;margin-left: auto; margin-right: auto;">
-            </div>
-            <div class="caption-section">
-                <h4 style="color: rgb(0, 0, 0);">SHOP FOR LOUNGE</h4>
-                <p>Check out latest collections.</p>
-            </div>
-        </div>
+{% block body_block %}
+<!--Home start-->
+<div class="banner-section"> <!--Banner start-->
+    <div class="banner-container">
         <div class="img-section">
-            <img src="{% static 'images/banner2.jpg' %}" alt="banner"
+            <img src="{% static 'images/banner1.jpg' %}" alt="banner"
                 style="display: block;margin-left: auto; margin-right: auto;">
         </div>
-    </div> <!--Banner end-->
-    <div class="row">
-        <div class="adcolumn">
-            <img src="{% static 'images/bed2.jpg' %}" alt="ad1">
-            <h2> REVAMP YOUR SPACE</h2>
-            <p>New year, New You-start over and up your style game.</p><br>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/chair1.jpg' %}" alt="ad2">
-            <h2>TWIN THINGS</h2>
-            <p>A little Coordination goes a long way..</p><br>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/kid1.jpg' %}" alt="ad3">
-            <h2>TRENDS OF THE MOMENT</h2>
-            <p>From luxurios fashion brand to urban trends.</p><br>
-        </div>
-    </div><br>
-    <div class="row">
-        <div class="foot-column">
-            <img src="{% static 'images/ad1.jpg' %}" alt="ad4">
-        </div>
-        <div class="foot-column">
-            <img src="{% static 'images/ad2.jpg' %}" alt="ad5">
+        <div class="caption-section">
+            <h4 style="color: rgb(0, 0, 0);">SHOP FOR LOUNGE</h4>
+            <p>Check out latest collections.</p>
         </div>
     </div>
-    <!--Home end-->
-    <footer> <!--Footer start-->
-        <div class="shop item">
-            <h4>Categories</h4>
-            <ul>
-                <li><a href="#">Dining</a></li>
-                <li><a href="#">Lounge</a></li>
-                <li><a href="#">Garden</a></li>
-                <li><a href="#">Bedroom</a></li>
-                <li><a href="#">Decor</a></li>
-            </ul>
-        </div>
-
-        <div class="products item">
-            <h4>Shop</h4>
-            <ul>
-                <li><a href="#">Featured</a></li>
-                <li><a href="#">New Arrivals</a></li>
-            </ul>
-        </div>
-
-        <div class="customer item">
-            <h4>QUICKLINKS</h4>
-            <ul>
-                <li><a href="#">Customer Login</a></li>
-                <li><a href="#">Customer Register</a></li>
-                <li><a href="#">Cart</a></li>
-                <li><a href="/rango/admin/">Admin Profile</a></li>
-            </ul>
-
-        </div>
-
-        <div class="copyright">
-            <p>C&copy; 2023 FINEWOOD. All Right Reserved</p>
-        </div>
-    </footer> <!--Footer end-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-    <script src="{% static 'script.js' %}"></script>
-</body>
-
-</html>
+    <div class="img-section">
+        <img src="{% static 'images/banner2.jpg' %}" alt="banner"
+            style="display: block;margin-left: auto; margin-right: auto;">
+    </div>
+</div> <!--Banner end-->
+<div class="row">
+    <div class="adcolumn">
+        <img src="{% static 'images/r_ad1.jpg' %}" alt="ad1">
+        <h2> REVAMP YOUR SPACE</h2>
+        <p>Start over and up your style game.</p><br>
+    </div>
+    <div class="adcolumn">
+        <img src="{% static 'images/r_ad2.jpg' %}" alt="ad2">
+        <h2>TWIN THINGS</h2>
+        <p>A little Coordination goes a long way..</p><br>
+    </div>
+    <div class="adcolumn">
+        <img src="{% static 'images/r_ad3.jpg' %}" alt="ad3">
+        <h2>TRENDS OF THE MOMENT</h2>
+        <p>Mordern to Vintage looks .</p><br>
+    </div>
+</div><br>
+<div class="row">
+    <div class="foot-column">
+        <img src="{% static 'images/ad1.jpg' %}" alt="ad4">
+    </div>
+    <div class="foot-column">
+        <img src="{% static 'images/ad2.jpg' %}" alt="ad5">
+    </div>
+</div>
+<!--Home end-->
+{% endblock %}

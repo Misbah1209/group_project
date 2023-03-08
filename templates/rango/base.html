@@ -6,7 +6,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'stylesheet.css' %}">
     <link rel="icon" href="{% static 'images/logo.jpg' %}">
     <!-- Title of the page -->
-    <title>FineWood-Home</title>
+    <title>FineWood- 
+    {% block title_block %}
+    Home
+    {% endblock %}
+    </title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap" rel="stylesheet">
@@ -21,10 +25,11 @@
             <a href="/rango/">
                 <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
             </a>
+            <p id="nametag">  Hey Guest,</p>
         </div>
         <!-- Search Bar -->
         <div class="search-bar">
-            <input type="text" class="search-box" placeholder=" Search ">
+            <input type="text" class="search-box" placeholder=" What are you looking for?">
             <i class="fa fa-search"></i>
         </div>
         <!-- Navigation Bar -->
@@ -55,80 +60,44 @@
     <div class="navbar-container">
         <nav>
             <ul class="nav-links">
-                <li><a href="/rango/product/">Dining</a></li>
-                <li><a href="/rango/product/">Lounge</a></li>
-                <li><a href="/rango/product/">Bedroom</a></li>
+                {% for category in categories %}
+                <li><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
     </div>
     <!-- category navigation bar end-->
-    <!--Home start-->
-    <div class="banner-section"> <!--Banner start-->
-        <div class="banner-container">
-            <div class="img-section">
-                <img src="{% static 'images/banner1.jpg' %}" alt="banner"
-                    style="display: block;margin-left: auto; margin-right: auto;">
-            </div>
-            <div class="caption-section">
-                <h4 style="color: rgb(0, 0, 0);">SHOP FOR LOUNGE</h4>
-                <p>Check out latest collections.</p>
-            </div>
-        </div>
-        <div class="img-section">
-            <img src="{% static 'images/banner2.jpg' %}" alt="banner"
-                style="display: block;margin-left: auto; margin-right: auto;">
-        </div>
-    </div> <!--Banner end-->
-    <div class="row">
-        <div class="adcolumn">
-            <img src="{% static 'images/bed2.jpg' %}" alt="ad1">
-            <h2> REVAMP YOUR SPACE</h2>
-            <p>New year, New You-start over and up your style game.</p><br>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/chair1.jpg' %}" alt="ad2">
-            <h2>TWIN THINGS</h2>
-            <p>A little Coordination goes a long way..</p><br>
-        </div>
-        <div class="adcolumn">
-            <img src="{% static 'images/kid1.jpg' %}" alt="ad3">
-            <h2>TRENDS OF THE MOMENT</h2>
-            <p>From luxurios fashion brand to urban trends.</p><br>
-        </div>
-    </div><br>
-    <div class="row">
-        <div class="foot-column">
-            <img src="{% static 'images/ad1.jpg' %}" alt="ad4">
-        </div>
-        <div class="foot-column">
-            <img src="{% static 'images/ad2.jpg' %}" alt="ad5">
-        </div>
-    </div>
-    <!--Home end-->
-    <footer> <!--Footer start-->
+    
+    <!-- body of all Pages go here -->
+    {% block body_block %}
+
+    {% endblock %}
+    <!--Footer start-->
+    <footer> 
         <div class="shop item">
-            <h4>Social Media</h4>
+            <h4>Categories</h4>
             <ul>
-                <li>Instagram</li>
-                <li>Twitter</li>
-                <li>Whatsapp</li>
+                <li><a href="/rango/product/">Dining</a></li>
+                <li><a href="/rango/product/">Lounge</a></li>
+                <li><a href="/rango/product/">Garden</a></li>
+                <li><a href="/rango/product/">Bedroom</a></li>
             </ul>
         </div>
 
         <div class="products item">
             <h4>Shop</h4>
             <ul>
-                <li>Featured</li>
-                <li>New Arrivals</li>
+                <li><a>Featured</a></li>
+                <li><a>New Arrivals</a></li>
             </ul>
         </div>
 
         <div class="customer item">
             <h4>QUICKLINKS</h4>
             <ul>
-                <li><a href="#">Customer Login</a></li>
-                <li><a href="#">Customer Register</a></li>
-                <li><a href="#">Cart</a></li>
+                <li><a href="/rango/login/">Customer Login</a></li>
+                <li><a href="/rango/register/">Customer Register</a></li>
+                <li><a href="/rango/cart/">Cart</a></li>
                 <li><a href="/rango/admin/">Admin Profile</a></li>
             </ul>
 

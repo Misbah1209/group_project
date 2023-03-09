@@ -1,10 +1,12 @@
-from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category, Product
 from rango.forms import UserForm, UserProfileForm, CategoryForm, ProductForm
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from . import models
+from django.contrib.auth import authenticate,login, logout
+from django.contrib.auth.decorators import login_required
+
 
 def index(request):
     category_list = Category.objects.all
@@ -53,11 +55,33 @@ def register(request):
     return render(request,'rango/register.html', context = {'user_form': user_form,'profile_form': profile_form,
                                         'registered': registered,'categories':category_list})
 
-def login(request):
-    context_dict = {}
+def user_login(request):
     category_list = Category.objects.all
-    context_dict['categories'] = category_list
-    return render(request, 'rango/login.html', context=context_dict)
+    if request.method == 'POST':     
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+
+        if user: 
+            # Is the account active? It could have been disabled.
+            if user.is_active:
+                login(request, user)
+                return redirect(reverse('rango:index'))
+            else:
+                # An inactive account was used - no logging in!
+                return HttpResponse("Your Rango account is disabled.")     
+        else:
+            # Bad login details were provided. So we can't log the user in.
+            print(f"Invalid login details: {username}, {password}")
+            return HttpResponse("Invalid login details supplied.")
+
+    else:     
+        return render(request, 'rango/login.html',context={'categories':category_list}) 
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('rango:index'))
 
 def cart(request):
     context_dict = {}

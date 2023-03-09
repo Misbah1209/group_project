@@ -42,10 +42,11 @@ Cart
                                 <p>£ <span>145.00</span></p>
                             </div>
                         </div>
-
+                        {% if user.is_authenticated %}
                         <div class="summary-checkout">
                             <button>CHECKOUT</button>
                         </div><br>
+                        {% endif %}
                     </div>
                 </div><!--Order Summary end-->
             </div>

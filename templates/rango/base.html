@@ -22,7 +22,7 @@
     <!--Header start-->
     <header class="nav-section">
         <div class="logo-container">
-            <a href="/rango/">
+            <a href="{% url 'rango:index' %}">
                 <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
             </a>
             <p id="nametag">  Hey Guest,</p>
@@ -36,21 +36,21 @@
         <div class="nav-main">
             <div class="shopping-cart">
                 <i class="fa fa-home fa-lg"></i>
-                <p><a href="/rango/">Home</a></p>
+                <p><a href="{% url 'rango:index' %}">Home</a></p>
             </div>
             <div class="shopping-cart">
                 <i class="fa fa-shopping-cart fa-lg"></i>
-                <p><a href="/rango/cart/">Cart</a></p>
+                <p><a href="{% url 'rango:cart' %}">Cart</a></p>
             </div>
 
             <div class="sign-in">
                 <i class="fa fa-sign-in fa-lg"></i>
-                <p><a href="/rango/login/">Login</a></p>
+                <p><a href="{% url 'rango:login' %}">Login</a></p>
             </div>
 
             <div class="create-user">
                 <i class="fa fa-users fa-lg"></i>
-                <p><a href="/rango/register/">Create Account</a></p>
+                <p><a href="{% url 'rango:register' %}">Create Account</a></p>
             </div>
         </div>
 
@@ -77,10 +77,9 @@
         <div class="shop item">
             <h4>Categories</h4>
             <ul>
-                <li><a href="/rango/product/">Dining</a></li>
-                <li><a href="/rango/product/">Lounge</a></li>
-                <li><a href="/rango/product/">Garden</a></li>
-                <li><a href="/rango/product/">Bedroom</a></li>
+                {% for category in categories %}
+                <li><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></li>
+                {% endfor %}
             </ul>
         </div>
 
@@ -95,10 +94,10 @@
         <div class="customer item">
             <h4>QUICKLINKS</h4>
             <ul>
-                <li><a href="/rango/login/">Customer Login</a></li>
-                <li><a href="/rango/register/">Customer Register</a></li>
-                <li><a href="/rango/cart/">Cart</a></li>
-                <li><a href="/rango/admin/">Admin Profile</a></li>
+                <li><a href="{% url 'rango:login' %}">Customer Login</a></li>
+                <li><a href="{% url 'rango:register' %}">Customer Register</a></li>
+                <li><a href="{% url 'rango:cart' %}">Cart</a></li>
+                <li><a href="{% url 'rango:admin' %}">Admin Profile</a></li>
             </ul>
 
         </div>

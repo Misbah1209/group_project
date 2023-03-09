@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from rango.models import Category, Product
-from rango.forms import UserForm, UserProfileForm
+from rango.forms import UserForm, UserProfileForm, CategoryForm, ProductForm
+from django.shortcuts import redirect
+from django.urls import reverse
+from . import models
 
 def index(request):
     category_list = Category.objects.all
@@ -67,3 +70,28 @@ def admin_page(request):
     category_list = Category.objects.all
     context_dict['categories'] = category_list
     return render(request, 'rango/admin_profile.html', context=context_dict)
+
+def add_category(request):
+    category_list = Category.objects.all
+    form = CategoryForm()
+    if request.method == 'POST':
+        form = CategoryForm(request.POST)
+        if form.is_valid():
+            cat=form.save(commit=True)
+            print(cat.slug)
+            return redirect('/rango/')
+        else:
+            print(form.errors)
+    return render(request, 'rango/add_category.html', {'form': form,'categories':category_list})
+
+def add_product(request):
+    category_list = Category.objects.all
+    form = ProductForm()
+    if request.method=='POST':
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/rango/')
+        else:
+            print(form.errors)
+    return render(request,'rango/add_product.html',{'form': form,'categories':category_list})

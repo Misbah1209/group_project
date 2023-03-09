@@ -5,6 +5,27 @@ Add Product
 {% endblock %}
 
 {% block body_block %}
-<!-- this is the add product page for admin only -->
+<div class="wall" style='background-image: url("{% static 'images/bg5.jpg' %}");'>
+
+    <form class="form_container" enctype="multipart/form-data" role="form" id="product_form" method="post" action="{% url 'rango:add_product'  %}">
+        <h1>Add Product</h1><br>
+        <hr><br>
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            {{ field.errors }}
+            {{ field.help_text }}
+            {{ field.label }}
+            {{ field }}
+            <div class="p-2"></div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit" name="submit">
+            Submit
+        </button>
+        <div class="p-5"></div>
+    </form>
+</div>
 
 {% endblock %}

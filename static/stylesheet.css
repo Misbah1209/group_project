@@ -563,7 +563,7 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  input[type=text], input[type=password],input[type=email] {
+  input[type=text], input[type=password],input[type=email],input[type=number],input[type=file] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -571,11 +571,20 @@
     background: #f1f1f1;
   }
   
-  input[type=text]:focus, input[type=password]:focus,input[type=email]:focus {
+  input[type=text]:focus, input[type=password]:focus,input[type=email]:focus ,input[type=number]:focus, input[type=file]:focus {
     background-color: #ddd;
     outline: none;
   }
   
+
+  select, option{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+
   .btn {
     background-color: rgb(129, 94, 52);
     color: white;

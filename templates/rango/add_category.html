@@ -5,6 +5,26 @@ Add Category
 {% endblock %}
 
 {% block body_block %}
-<!-- this is the add category form page for admin only and links to add product page -->
+<div class="wall" style='background-image: url("{% static 'images/bg5.jpg' %}");'>
+
+    <form class="form_container" role="form" id="category_form" method="post" action="{% url 'rango:add_category'  %}">
+        <h1>Add Category</h1><br>
+        <hr><br>
+        {% csrf_token %}
+        {% for hidden in form.hidden_fields %}
+            {{ hidden }}
+        {% endfor %}
+        {% for field in form.visible_fields %}
+            {{ field.errors }}
+            {{ field.help_text }}<br/>
+            {{ field }}<br />
+            <div class="p-2"></div>
+        {% endfor %}
+        <button class="btn btn-primary" type="submit" name="submit">
+            Submit
+        </button>
+        <div class="p-5"></div>
+    </form>
+</div>
 
 {% endblock %}

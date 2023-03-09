@@ -5,26 +5,50 @@ Admin Profile
 {% endblock %}
 
 {% block body_block %}
-    <!-- Body start -->
-    <div class="wall" style='background-image: url("{% static 'images/bg4.jpg' %}");'>
-        <br><br><br>
-        <div class="summary-c"><!--Order summary Start-->
-            <div class="summary-box">
-                <h2 class="summary-caption">Current Categories</h2>
-
-                <div class="summary-box-info">
-                    {% for category in categories %}
-                    <div class="summary-items">
-                        <h3><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></h3>
-                    </div><br>
-                    {% endfor %}
+<!-- Body start -->
+<div class="wall" style='background-image: url("{% static 'images/bg5.jpg' %}");'>
+    <br><br><br>
+    <div class="cart-section">
+        <h2 class="cart-caption"> Admin Profile</h2>
+        <div class="cart-display-section">
+            <div class="products-c"> <!--Products container start-->
+                <div class="summary-box">
+                    <h2 class="summary-caption">Orders Placed</h2>
+                    <div class="summary-box-info">
+                        <div class="summary-items">
+                            <h3>Customer name</h3>
+                            <p>Bill Amount</p>
+                        </div>
+                        <br>
+                        <div class="summary-items">
+                            <h3>name</h3>
+                            <p>Amt</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="summary-c"><!--Order summary Start-->
+                <div class="summary-box">
+                    <h2 class="summary-caption">Current Categories</h2>
 
-                <div class="summary-checkout">
-                    <button><a href="#">Add category</a></button>
+                    <div class="summary-box-info">
+                        {% for category in categories %}
+                        <div class="summary-items">
+                            <h3><a href="/rango/category/{{ category.slug }}/">{{ category.name }}</a></h3>
+                        </div><br>
+                        {% endfor %}
+                    </div>
+
+                    <div class="summary-checkout">
+                        <button><a href="{% url 'rango:add_category' %}">Add a New Category</a></button>
+                    </div>
+                    <div class="summary-checkout">
+                        <button><a href="{% url 'rango:add_product' %}">Add a New Product</a></button>
+                    </div>
+                    <br>
                 </div>
-                <br>
             </div>
         </div>
     </div>
+</div>
 {% endblock %}

@@ -227,10 +227,7 @@
     height: 20%;
   }
 
-  .dropdown
-  {
-    margin-right: 10px;
-  }
+
   .product-caption h2 {
     font-family: "Rubik", sans-serif;
     text-align: left;
@@ -575,7 +572,6 @@
     background-color: #ddd;
     outline: none;
   }
-  
 
   select, option{
     width: 100%;
@@ -634,9 +630,15 @@
     border-radius:10px;
   }
   
+  .form-inline {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+
   .dropdown {
-  
     float:right;
+    margin-right: 10px;
   }
   
   .dropdown-content {
@@ -659,6 +661,21 @@
   .dropdown-content a:hover {background-color: #f1f1f1;}
   .dropdown:hover .dropdown-content {display: block;}
   .dropdown:hover .dropbtn {background-color: rgb(129, 94, 52);}
+
+  /* .searchbtn {
+    width: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+  } */
+  
+  field { 
+    font-family:arial, sans-serif; 
+    border-color: #d9d9d9; 
+    border-top:solid 1px #c0c0c0; 
+  }
+  input.field{width:auto; float:left;}
+
     
   /* --------- */
   /* Home Page */

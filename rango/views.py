@@ -16,18 +16,107 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def show_category(request,category_name_slug):
-    context_dict = {}
-    category_list = Category.objects.all
-    context_dict['categories'] = category_list
-    try:
-        category = Category.objects.get(slug=category_name_slug)
-        products = Product.objects.filter(category=category)
-        context_dict['products'] = products
-        context_dict['category'] = category
-    except Category.DoesNotExist:
-        context_dict['category'] = None
-        context_dict['pages'] = None    
-    return render(request, 'rango/category_products.html', context=context_dict)
+
+    kw = request.GET.get("keyword", None)
+    px = request.GET.get("sort",None)
+    yanse = request.GET.get("color",None)
+
+    if kw:
+        context_dict = {}
+        category_list = Category.objects.all
+        context_dict['categories'] = category_list
+        try:
+            category = Category.objects.get(slug=category_name_slug)
+            if kw.isdigit():
+                print(kw)
+                products = Product.objects.filter(category=category,price__in=kw)
+                context_dict['products'] = products
+                context_dict['category'] = category
+            else:
+                products = Product.objects.filter(category=category,title__contains=kw)
+                context_dict['products'] = products
+                context_dict['category'] = category
+        except Category.DoesNotExist:
+            context_dict['category'] = None
+            context_dict['products'] = None
+        return render(request, 'rango/category_products.html', context=context_dict)
+    else:
+        if px == 'sx':
+            print(px)
+            context_dict = {}
+            category_list = Category.objects.all
+            context_dict['categories'] = category_list
+            try:
+                category = Category.objects.get(slug=category_name_slug)
+                products = Product.objects.filter(category=category).order_by('price')
+                print(category_name_slug,category)
+                context_dict['products'] = products
+                context_dict['category'] = category
+            except Category.DoesNotExist:
+                context_dict['category'] = None
+                context_dict['products'] = None
+            return render(request, 'rango/category_products.html', context=context_dict)
+        elif px == 'jx' :
+            print(px)
+            context_dict = {}
+            category_list = Category.objects.all
+            context_dict['categories'] = category_list
+            try:
+                category = Category.objects.get(slug=category_name_slug)
+                products = Product.objects.filter(category=category).order_by('-price')
+                print(category_name_slug,category)
+                context_dict['products'] = products
+                context_dict['category'] = category
+            except Category.DoesNotExist:
+                context_dict['category'] = None
+                context_dict['products'] = None
+            return render(request, 'rango/category_products.html', context=context_dict)
+        context_dict = {}
+        category_list = Category.objects.all
+        context_dict['categories'] = category_list
+        try:
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category).order_by('price')
+            print(category_name_slug, category)
+            context_dict['products'] = products
+            context_dict['category'] = category
+        except Category.DoesNotExist:
+            context_dict['category'] = None
+            context_dict['products'] = None
+
+        print(yanse)
+        if yanse == 'black':
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category, color='Black')
+            context_dict['products'] = products
+            context_dict['category'] = category
+            return render(request, 'rango/category_products.html', context=context_dict)
+        elif yanse == 'white':
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category, color='White')
+            context_dict['products'] = products
+            context_dict['category'] = category
+            return render(request, 'rango/category_products.html', context=context_dict)
+        elif yanse == 'grey':
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category, color='Grey')
+            context_dict['products'] = products
+            context_dict['category'] = category
+            return render(request, 'rango/category_products.html', context=context_dict)
+        elif yanse == 'gold':
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category, color='Gold')
+            context_dict['products'] = products
+            context_dict['category'] = category
+            return render(request, 'rango/category_products.html', context=context_dict)
+        elif yanse == 'brown':
+            category = Category.objects.get(slug=category_name_slug)
+            products = Product.objects.filter(category=category, color='Brown')
+            context_dict['products'] = products
+            context_dict['category'] = category
+            return render(request, 'rango/category_products.html', context=context_dict)
+
+        return render(request, 'rango/category_products.html', context=context_dict)
 
 def register(request):
     category_list = Category.objects.all

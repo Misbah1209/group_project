@@ -7,26 +7,35 @@ Products
 {% block body_block %}
     <div class="products-section">
         <div class="product-caption">
-            <h2 style="display:inline">HOME > {{category.name}}</h2>
+            <h2 style="display: inline;">Home > {{category.name}}</h2>
+            
             <div class="dropdown">
                 <button class="dropbtn">Sort</button>
                 <div class="dropdown-content">
-                    <a href="#">High to Low Price</a>
-                    <a href="#">Low to High Price</a>
+                    <a href="?sort=sx">Low to High Price</a>
+                    <a href="?sort=jx">High to Low Price</a>
                 </div>
             </div>
             <div class="dropdown">
                 <button class="dropbtn">Filter</button>
                 <div class="dropdown-content">
-                    <a href="#">Black</a>
-                    <a href="#">White</a>
-                    <a href="#">Grey</a>
-                    <a href="#">Gold</a>
-                    <a href="#">Brown</a>
+                    <a href="?color=black">Black</a>
+                    <a href="?color=white">White</a>
+                    <a href="?color=grey">Grey</a>
+                    <a href="?color=gold">Gold</a>
+                    <a href="?color=brown">Brown</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <div class="fieldwrapper">
+                    <form action="{% url 'rango:show_category' category.name|lower %}">
+                        <input type="text" name="keyword" class="field r2" placeholder="Enter keywords to search" />
+                        <button type="submit" class="dropbtn">search<i class="fa fa-search"></i></button>         
+                    </form>
                 </div>
             </div>
         </div>
-        <br><br>
+        <br><br><br>
         <div class="grid-container"> <!--Grid start end-->
             {% if category %}
                 {% if products %}

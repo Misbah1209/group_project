@@ -25,16 +25,13 @@
             <a href="{% url 'rango:index' %}">
                 <img src="{% static 'images/logo.jpg' %}" alt="logo" class="logo">
             </a>
+            <span style="margin-left: 10px;">
             {% if user.is_authenticated %}
                 <p id="nametag">  Hey {{ user.username}}! Welcome Back to FineWood</p>
             {% else %}
                 <p id="nametag">  Hey Guest</p>
             {% endif %}
-        </div>
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" class="search-box" placeholder=" What are you looking for?">
-            <i class="fa fa-search"></i>
+            </span>
         </div>
         <!-- Navigation Bar -->
         <div class="nav-main">

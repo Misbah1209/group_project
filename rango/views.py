@@ -208,3 +208,17 @@ def add_product(request):
         else:
             print(form.errors)
     return render(request,'rango/add_product.html',{'form': form,'categories':category_list})
+
+def addtocart(request):
+    if request.method =='POST':
+        prod_id=int(request.POST.get('product_id'))
+        product_check=Product.object.get(id=prod_id)
+        if(product_check):
+            if(Cart.objects.filter(product_id=prod_id)):
+                return JsonResponse({'status':"Product Already in Cart"})
+            else:
+                Cart.objects.create(product_id=prod_id)
+                return JsonResponse({'status':"Successfully Added"})
+        else:
+            return JsonResponse({'status':"No such product found"})
+    return redirect('/rango/')

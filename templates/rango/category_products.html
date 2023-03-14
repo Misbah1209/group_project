@@ -46,11 +46,14 @@ Products
                                 <img src="{{product.product_image.url}}" alt="pic">
                             </div>
                             <div class="card-info">
-                                <h4>{{ product.title }}</h4>
-                                <small>£{{ product.price }}</small>
+                                <input type="hidden" value="{{product.id}}" class="prod_id">
+                                <input type="hidden" value="{{product.title}}" class="prod_name ">
+                                <input type="hidden" value="{{product.price}}" class="prod_price"">
+                                <h4 >{{ product.title }}</h4>
+                                <small >£{{ product.price }}</small>
                             </div>
                             <div class="button">
-                                <button>ADD TO CART</button>
+                                <button onclick="addToBasket('{{product.title}}', '{{product.price}}')">ADD TO CART</button>
                             </div>
                         </div>
                     </div>

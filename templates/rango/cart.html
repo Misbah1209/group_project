@@ -6,7 +6,7 @@ Cart
 
 {% block body_block %}
     <!-- Body start -->
-    <div class="wall" style='background-image: url("{% static 'images/bg3.jpg' %}");'>
+    <div class="wall" style='background-image: url("{% static "images/bg3.jpg" %}")'>
         <div class="cart-section">
             <h2 class="cart-caption"> Cart</h2>
             <div class="cart-display-section">
@@ -15,13 +15,15 @@ Cart
                         <h2 class="summary-caption">Products</h2>
                         <div class="summary-box-info">
                             <div class="summary-items">
-                                <h3>name</h3>
-                                <p>price</p>
+                                <h3>Product Name</h3>
+                                <p>Price</p>
                             </div>
                             <br>
-                            <div class="summary-items">
-                                <h3>name</h3>
-                                <p>price</p>
+                            <div id="cartDiv">
+                                <div class="summary-items">
+                                    <h3>name</h3>
+                                    <p>price</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -32,14 +34,14 @@ Cart
                         <h2 class="summary-caption">Order Summary</h2>
 
                         <div class="summary-box-info">
-                            <div class="summary-items">
+                            <div id="Quantity" class="summary-items">
                                 <h3>No.Of Items</h3>
-                                <p>2</p>
+                                <p>0</p>
                             </div>
-
-                            <div class="summary-total">
+        
+                            <div id="bill" class="summary-total">
                                 <h3>Subtotal</h3>
-                                <p>£ <span>145.00</span></p>
+                                <p>£ <span>0.00</span></p>
                             </div>
                         </div>
                         {% if user.is_authenticated %}

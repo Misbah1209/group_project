@@ -32,23 +32,27 @@ Cart
                 <div class="summary-c"><!--Order summary Start-->
                     <div class="summary-box">
                         <h2 class="summary-caption">Order Summary</h2>
-
-                        <div class="summary-box-info">
-                            <div id="Quantity" class="summary-items">
-                                <h3>No.Of Items</h3>
-                                <p>0</p>
-                            </div>
-        
-                            <div id="bill" class="summary-total">
-                                <h3>Subtotal</h3>
-                                <p>£ <span>0.00</span></p>
-                            </div>
-                        </div>
-                        {% if user.is_authenticated %}
-                        <div class="summary-checkout">
-                            <button>CHECKOUT</button>
-                        </div><br>
-                        {% endif %}
+                        <div class="summary-box-info checkoutbox">
+                            <form class="form_container" style="position: inherit;" enctype="multipart/form-data" role="form" id="order_form" method="post" action="{% url 'rango:cart'  %}">
+                                {% csrf_token %}
+                                {% for hidden in form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                                {% for field in form.visible_fields %}
+                                    {{ field.errors }}
+                                    {{ field.help_text }}
+                                    {{ field.label }}
+                                    {{ field }}
+                                    <div class="p-2"></div>
+                                {% endfor %}
+                                {% if user.is_authenticated %}
+                                <button class="btn btn-primary" type="submit" name="submit" style="font-family:Rubik, sans-serif;font-size: large;">
+                                    CHECKOUT
+                                </button>
+                                {% endif %}
+                                <div class="p-5"></div>
+                            </form>
+                        </div>                   
                     </div>
                 </div><!--Order Summary end-->
             </div>

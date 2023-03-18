@@ -1,7 +1,7 @@
 from django import forms
 from django.db import models
 from django.contrib.auth.models import User
-from rango.models import Customer, Category,Product
+from rango.models import Customer, Category,Product,Order
 
 
 class UserForm(forms.ModelForm):
@@ -34,6 +34,23 @@ class ProductForm(forms.ModelForm):
                 'price': ('Product Price'),
                 'color': ('Product Color'),
                 'product_image': ('Product Image'),
+            }
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        url = cleaned_data.get('url')
+        if url and not (url.startswith('http://') or url.startswith('https://')):
+            url = f'http://{url}'
+            cleaned_data['url'] = url
+
+        return cleaned_data
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model= Order
+        fields=['quantity','billAmt']
+        label = {
+                'quantity': ('quantity'),
+                'billAmt': ('billAmt'),
             }
     def clean(self):
         cleaned_data = self.cleaned_data

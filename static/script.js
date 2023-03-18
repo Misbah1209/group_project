@@ -58,6 +58,6 @@ function loadBasket(){
     document.getElementById("cartDiv").innerHTML = htmlStr;
 
     let sum = basket.reduce((sum,item) => sum + Number(item.price) , 0);
-    document.getElementById("Quantity").innerHTML = "<h3>No.Of Items</h3><p>"+basket.length+"</p>";
-    document.getElementById("bill").innerHTML ="<h3>Subtotal</h3><p>£ <span>"+sum+"</span></p>";    
+    document.getElementById("id_quantity").value = basket.length;
+    document.getElementById("id_billAmt").value =sum;    
 }

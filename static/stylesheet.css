@@ -754,4 +754,9 @@
   .helptext{
     display: none;
   }
+.checkoutbox{
+  margin-right: 0px;
+  margin-left: 0px;
+  padding: 0px
+}
   /*  Styling for Ads Section Ends */

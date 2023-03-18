@@ -11,7 +11,7 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug':('name',)}
 
 class OrderAdmin(admin.ModelAdmin):
-    pass
+     list_display = ('quantity', 'billAmt')
 
 # Update the registration to include this customised interface
 admin.site.register(Category, CategoryAdmin)

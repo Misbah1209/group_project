@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from rango.models import Category, Product
-from rango.forms import UserForm, UserProfileForm, CategoryForm, ProductForm
+from rango.forms import UserForm, UserProfileForm, CategoryForm, ProductForm, OrderForm
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from . import models
@@ -173,10 +173,16 @@ def user_logout(request):
     return redirect(reverse('rango:index'))
 
 def cart(request):
-    context_dict = {}
     category_list = Category.objects.all
-    context_dict['categories'] = category_list
-    return render(request, 'rango/cart.html', context=context_dict)
+    form = OrderForm()
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return redirect('/rango/')
+        else:
+            print(form.errors)
+    return render(request, 'rango/cart.html',  {'form': form,'categories':category_list})
 
 def admin_page(request):
     context_dict = {}

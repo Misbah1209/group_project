@@ -28,11 +28,11 @@ class Product(models.Model):
         return self.title
 
 class Order(models.Model):
-    customer=models.ForeignKey('Customer', on_delete=models.CASCADE,null=True)
+    quantity = models.IntegerField(default=0)
     billAmt = models.DecimalField(max_digits=8, decimal_places=2)
 
     def __str__(self):
-        return self.Order
+        return self.quantity
 
 
 class Customer(models.Model):

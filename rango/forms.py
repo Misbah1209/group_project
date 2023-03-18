@@ -3,7 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from rango.models import Customer, Category,Product,Order
 
-
+# This is referenced from TWD chapter 9, but modifications have been made.
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     

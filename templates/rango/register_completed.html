@@ -1,0 +1,18 @@
+{% extends 'rango/base.html' %}
+{% load staticfiles %}
+{% block title_block %}
+    Register_Completed
+{% endblock %}
+
+{% block body_block %}
+    <!-- Body start -->
+
+    <div class="wall" style='background-image: url("{% static 'images/bg1.jpg' %}");'>
+        <form id="user_form" method="post" class="account_container" >
+                    <br><br>
+                    <h1 id="lblreg" >Thank you for registering!</h1>
+                    <br><br>
+        </form>
+    </div>
+    <!-- Body end -->
+{% endblock %}

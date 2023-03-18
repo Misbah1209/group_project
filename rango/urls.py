@@ -14,4 +14,5 @@ urlpatterns = [
     path('category/<slug:category_name_slug>/',views.show_category, name='show_category'),
     path('add_category/', views.add_category, name='add_category'),
     path('add_product/', views.add_product, name='add_product'),
+    path('register_completed',views.register_completed,name="register_completed"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

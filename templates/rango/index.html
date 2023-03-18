@@ -8,17 +8,25 @@ Home
 <!--Home start-->
 <div class="banner-section"> <!--Banner start-->
     <div class="banner-container">
-        <div class="img-section">
-            <img src="{% static 'images/banner1.jpg' %}" alt="banner"
-                style="display: block;margin-left: auto; margin-right: auto;">
+        <div id="imageroll">
+            <a href="#nogo" id="imgwrap">
+                <img src="{% static 'images/banner1.jpg' %}" alt="banner">
+                <img src="{% static 'images/bg2.jpg' %}" alt="Pic2">
+                <img src="{% static 'images/bg3.jpg' %}" alt="Pic3">
+            </a>
+            <div>
+                <a href="###1"><em>Best Taste</em><em>Picture one</em></a>
+                <a href="###2"><em>Dream House</em><em>Picture Two</em></a>
+                <a href="###3" class="last"><em>Best Choice</em><em>Picture Three</em></a>
+            </div>
         </div>
         <div class="caption-section">
             <h4 style="color: rgb(0, 0, 0);">SHOP FOR LOUNGE</h4>
-            <p>Check out latest collections.</p>
+            <h3>Check out latest collections.</h3>
         </div>
     </div>
     <div class="img-section">
-        <img src="{% static 'images/banner2.jpg' %}" alt="banner"
+        <img id="lewis2" src="{% static 'images/banner2.jpg' %}" alt="banner"
             style="display: block;margin-left: auto; margin-right: auto;">
     </div>
 </div> <!--Banner end-->

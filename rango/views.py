@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from rango.models import Category, Product
+from rango.models import Category, Product, Order
 from rango.forms import UserForm, UserProfileForm, CategoryForm, ProductForm, OrderForm
 from django.shortcuts import redirect, render
 from django.urls import reverse
@@ -135,6 +135,7 @@ def register(request):
             profile.save()
             
             registered = True
+            return redirect(reverse('rango:register_completed'))
         else:
             print(user_form.errors, profile_form.errors)
     else:
@@ -185,10 +186,9 @@ def cart(request):
     return render(request, 'rango/cart.html',  {'form': form,'categories':category_list})
 
 def admin_page(request):
-    context_dict = {}
     category_list = Category.objects.all
-    context_dict['categories'] = category_list
-    return render(request, 'rango/admin_profile.html', context=context_dict)
+    order_list = Order.objects.all
+    return render(request, 'rango/admin_profile.html', context={'categories':category_list,'orders':order_list})
 
 def add_category(request):
     category_list = Category.objects.all
@@ -214,3 +214,9 @@ def add_product(request):
         else:
             print(form.errors)
     return render(request,'rango/add_product.html',{'form': form,'categories':category_list})
+
+def register_completed(request):
+    category_list = Category.objects.all
+    context_dict = {}
+    context_dict['categories'] = category_list
+    return render(request, 'rango/register_completed.html',context=context_dict)

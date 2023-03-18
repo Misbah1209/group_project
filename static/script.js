@@ -1,5 +1,4 @@
 window.onload = admin;
-window.onload = loadBasket;
 
 function admin() {
     adminName=document.getElementById("nametag").innerText;
@@ -13,6 +12,7 @@ function admin() {
         document.getElementById("admintag").style.display = "none";
         console.log("no");
     }
+    loadBasket();
 }
 
 // This function gets/creates session basket.
@@ -61,3 +61,23 @@ function loadBasket(){
     document.getElementById("id_quantity").value = basket.length;
     document.getElementById("id_billAmt").value =sum;    
 }
+$(function(){
+
+    var index=0;
+    $('#imageroll div a').mouseover(function (){
+
+        index=$('#imageroll div a').index(this);
+
+        showImg(index);
+    }).eq(0).mouseover();
+
+    function showImg(index){
+
+        var $rollobj= $('#imageroll');
+        var $rolllist= $rollobj.find('div a');
+        var newhref= $rolllist.eq(index).attr('href');
+
+        $('#imgwrap').attr('href',newhref).find('img').eq(index).stop().fadeIn().siblings().fadeOut();
+        $rolllist.removeClass('chos').css('opacity','0.7').eq(index).addClass('chos').css('opacity','1');
+    }
+})

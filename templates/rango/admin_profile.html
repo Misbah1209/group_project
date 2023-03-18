@@ -13,17 +13,19 @@ Admin Profile
         <div class="cart-display-section">
             <div class="products-c"> <!--Products container start-->
                 <div class="summary-box">
-                    <h2 class="summary-caption">Orders Placed</h2>
+                    <h2 class="summary-caption">Previous Orders Placed</h2>
                     <div class="summary-box-info">
                         <div class="summary-items">
-                            <h3>Customer name</h3>
+                            <h3>Quantity</h3>
                             <p>Bill Amount</p>
                         </div>
+                        {% for order in orders %}
                         <br>
                         <div class="summary-items">
-                            <h3>name</h3>
-                            <p>Amt</p>
+                            <h3>{{ order.quantity }}</h3>
+                            <p>{{ order.billAmt }}</p>
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>

@@ -760,3 +760,62 @@
   padding: 0px
 }
   /*  Styling for Ads Section Ends */
+  a{
+    text-decoration: none;
+}
+#imageroll{
+   display: inline-block;
+   top:15px;
+   left:1%;
+   height: 500px;
+   margin: 0 5px 0 0;
+   position: relative;
+   width: 700px;
+
+}
+#imageroll img{
+   width: 1250px;
+   height: 500px;
+   position: absolute;
+   left:0;
+   top:0;
+
+}
+#imageroll div{
+   bottom:0;
+   overflow: hidden;
+   position: absolute;
+   float: left;
+   scale: initial;
+
+}
+
+#imageroll div a{
+   background-color: #999;
+   color: #fff;
+   display: block;
+   float: left;
+   height: 50px;
+   margin-right: 1px;
+   overflow: hidden;
+   padding: 10px 10px;
+   text-align: center;
+   width:200px;
+   font-size: 15px;
+}
+
+#imageroll div a em{
+   cursor: pointer;
+   display: block;
+   height: 80px;
+   overflow: hidden;
+   width: 100px;
+}
+#imageroll .last{
+   margin:0;
+   width: 200px;
+}
+#imageroll a.chos{
+   background-color: #37c;
+   color: #fff;
+}

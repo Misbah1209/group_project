@@ -5,6 +5,7 @@ Add Product
 {% endblock %}
 
 {% block body_block %}
+<!-- this is an html page to display the add product form for the admin -->
 <div class="wall" style='background-image: url("{% static 'images/bg5.jpg' %}");'>
 
     <form class="form_container" enctype="multipart/form-data" role="form" id="product_form" method="post" action="{% url 'rango:add_product'  %}">

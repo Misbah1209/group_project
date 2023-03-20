@@ -6,6 +6,7 @@ import django
 django.setup()
 from rango.models import Category, Product
 
+# this funtion helps to load predetermined data into the database
 def populate():
     dining_products = [
         {'title': 'Velvet Chair',

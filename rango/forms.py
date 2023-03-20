@@ -16,6 +16,8 @@ class UserProfileForm(forms.ModelForm):
         model = Customer
         fields = ('address', 'telephone',)
 
+
+#this is the category form used by admin to add new category
 class CategoryForm(forms.ModelForm):
     name = forms.CharField(max_length=128,help_text="Enter Category Name")
     slug = forms.CharField(widget=forms.HiddenInput(), required=False)
@@ -24,6 +26,7 @@ class CategoryForm(forms.ModelForm):
         model = Category
         fields = ('name',)
 
+#this is the product form used by admin to add new products
 class ProductForm(forms.ModelForm):
 
     class Meta:
@@ -44,6 +47,7 @@ class ProductForm(forms.ModelForm):
 
         return cleaned_data
 
+#this is the order form used by user to perform checkout
 class OrderForm(forms.ModelForm):
     class Meta:
         model= Order

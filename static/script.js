@@ -1,6 +1,7 @@
 window.onload = admin;
 
 function admin() {
+    //this is a javascript funtion to check if the user logged in is the admin
     adminName=document.getElementById("nametag").innerText;
 
     if (adminName=="Hey team13! Welcome Back to FineWood"){
@@ -63,6 +64,7 @@ function loadBasket(){
 }
 $(function(){
 
+    // this a jquery funtion to diplay the carousel on the home page
     var index=0;
     $('#imageroll div a').mouseover(function (){
 

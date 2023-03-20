@@ -10,7 +10,9 @@ from rango.models import Category,Product,Order
 from django.core.files.uploadedfile import InMemoryUploadedFile
 from io import BytesIO
 import base64
-#Create a temporary user object#
+
+
+# below are unit test perform to test the performance of the views, urls and database.
 TEST_IMAGE = '''
 iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAABIAAAASABGyWs+AAAACXZwQWcAAAAQAAAAEABcxq3DAAABfElEQVQ4y52TvUuCURTGf5Zg
@@ -52,7 +54,10 @@ c3NKmqa6uLios7MXtFgsahRFGhUKHUS7KBQ0iiIdGhrS8+dndH5+XpMk0X8AMTVx/inpU4cAAAAl
 dEVYdGNyZWF0ZS1kYXRlADIwMTAtMTItMjZUMTQ6NDk6MjErMDk6MDAHHBB1AAAAJXRFWHRtb2Rp
 ZnktZGF0ZQAyMDEwLTEyLTI2VDE0OjQ5OjIxKzA5OjAwWK1mQQAAAABJRU5ErkJggg==
 '''.strip()
+
+
 #This is referenced from TWD github's progress test but with some modifiations
+# Create a temporary user object
 def creat_user_object():
     user=User.objects.get_or_create(username="testuser",first_name="Test",last_name="User",email="test@test.com")[0]
     user.set_password('123456')
@@ -153,6 +158,8 @@ class LogoutTest(TestCase):
         self.assertTrue('_auth_user_id' not in self.client.session)
 
 class LoginViewTest(TestCase):
+    # to test invalid login provided
+
     def setUp(self):
         # Create a test user
         self.test_user = User.objects.create_user(username='testuser', password='testpassword')
@@ -167,6 +174,7 @@ class LoginViewTest(TestCase):
         self.assertContains(response, "Invalid login details supplied.")
 
 class CategoryMethodTests(TestCase):
+    #to test add category function
     def test_ensure_category_added(self):
         category = Category(name='test')
         category.save()
@@ -285,6 +293,7 @@ class CategoryShowMethodTests(TestCase):
 
 
 class CheckOutTestCase(TestCase):
+    #to test the checkout function
     def test_cart_view_exists(self):
         url = ""
         try:

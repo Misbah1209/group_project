@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 
 def index(request):
+    # this method is used to display the index page along with list of all category
     category_list = Category.objects.all
     context_dict = {}
     context_dict['categories'] = category_list
@@ -16,7 +17,7 @@ def index(request):
     return render(request, 'rango/index.html', context=context_dict)
 
 def show_category(request,category_name_slug):
-
+    # this method is used to display the products of a specific category and perform search, sort and filter
     kw = request.GET.get("keyword", None)
     px = request.GET.get("sort",None)
     yanse = request.GET.get("color",None)
@@ -119,13 +120,15 @@ def show_category(request,category_name_slug):
         return render(request, 'rango/category_products.html', context=context_dict)
 
 def register(request):
+    # this method is used to register user and save their detail to the database
     category_list = Category.objects.all
     registered = False
     if request.method == 'POST':
         user_form = UserForm(request.POST)
         profile_form = UserProfileForm(request.POST)
+        # check if the details are entered correctly
         if user_form.is_valid() and profile_form.is_valid():
-            
+            #once form is validated save the details in the database
             user = user_form.save()
             user.set_password(user.password)
             user.save()
@@ -146,6 +149,7 @@ def register(request):
                                         'registered': registered,'categories':category_list})
 
 def user_login(request):
+    # this method is used to allow user login using their username and password.
     category_list = Category.objects.all
     if request.method == 'POST':     
         username = request.POST.get('username')
@@ -170,10 +174,12 @@ def user_login(request):
 
 @login_required
 def user_logout(request):
+    # this method is used to perform log out
     logout(request)
     return redirect(reverse('rango:index'))
 
 def cart(request):
+    # this method is used to save the information of the users cart
     category_list = Category.objects.all
     form = OrderForm()
     if request.method == 'POST':
@@ -186,11 +192,13 @@ def cart(request):
     return render(request, 'rango/cart.html',  {'form': form,'categories':category_list})
 
 def admin_page(request):
+    #this funtion helps to load the admin page and provides access to add category and product
     category_list = Category.objects.all
     order_list = Order.objects.all
     return render(request, 'rango/admin_profile.html', context={'categories':category_list,'orders':order_list})
 
 def add_category(request):
+    # this method is used to add new category to the existing list
     category_list = Category.objects.all
     form = CategoryForm()
     if request.method == 'POST':
@@ -204,6 +212,7 @@ def add_category(request):
     return render(request, 'rango/add_category.html', {'form': form,'categories':category_list})
 
 def add_product(request):
+    # this method is used to add new category to the existing list
     category_list = Category.objects.all
     form = ProductForm()
     if request.method=='POST':
@@ -216,6 +225,7 @@ def add_product(request):
     return render(request,'rango/add_product.html',{'form': form,'categories':category_list})
 
 def register_completed(request):
+    # this method is used to display the registeration completed page along with list of all category
     category_list = Category.objects.all
     context_dict = {}
     context_dict['categories'] = category_list

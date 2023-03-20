@@ -5,6 +5,8 @@ Products
 {% endblock %}
 
 {% block body_block %}
+<!-- this page is used to display the products from the database according to the category selected -->
+<!-- it alos consist of funtions sort, search and filter -->
     <div class="products-section">
         <div class="product-caption">
             <h2 style="display: inline;">Home > {{category.name}}</h2>
@@ -37,6 +39,7 @@ Products
         </div>
         <br><br><br>
         <div class="grid-container"> <!--Grid start end-->
+            <!-- only products of the selected category will be displayed -->
             {% if category %}
                 {% if products %}
                     {% for product in products %}

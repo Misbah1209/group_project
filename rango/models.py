@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 # Create your models here.
 
+# we have created 4 models as below to store the data from the web app.
+
 class Category(models.Model):
     name = models.CharField(max_length=128, unique=True)
     slug = models.SlugField(unique=True)
@@ -18,6 +20,8 @@ class Category(models.Model):
         return self.name
 
 class Product(models.Model):
+    # the product model has 5 attributes:
+    # category(the category they belong to), title, product image, price and color
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     title = models.CharField(max_length=128)
     product_image= models.ImageField(upload_to='product_image/',null=True,blank=True)

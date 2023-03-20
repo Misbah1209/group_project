@@ -4,6 +4,8 @@ from django.urls import path
 from rango import views
 app_name = 'rango'
 
+# below are the url paths for the application
+
 urlpatterns = [
     path('', views.index, name='index'),
     path('cart/', views.cart, name='cart'),

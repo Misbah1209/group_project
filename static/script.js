@@ -3,7 +3,7 @@ window.onload = admin;
 function admin() {
     adminName=document.getElementById("nametag").innerText;
 
-    if (adminName=="Hey admin! Welcome Back to FineWood"){
+    if (adminName=="Hey team13! Welcome Back to FineWood"){
         console.log("yes");
         console.log(document.getElementById("admintag").innerHTML);
         document.getElementById("admintag").style.display = "block";

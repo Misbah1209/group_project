@@ -31,7 +31,7 @@ SECRET_KEY = 'uoam1@3w55l5hjw&yd0z@-p6o$op1t=6wf$6(01v*-uifv%h*x'
 # SECRET_KEY = key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['team13.pythonanywhere.com']
 
